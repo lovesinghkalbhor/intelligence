@@ -5,7 +5,7 @@ import "dotenv/config";
 
 const app = express();
 
-const port = 3000;
+const port = process.env.port || 5000;
 
 app.use(cors({ origin: "*", credentials: true }));
 
@@ -23,7 +23,7 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server listening at ${port}`);
   connectDB();
 });
 

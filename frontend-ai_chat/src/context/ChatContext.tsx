@@ -38,7 +38,7 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
 
       try {
         const response = await fetch(
-          "http://localhost:3000/api/v1/threads/get"
+          `${import.meta.env.VITE_BACKEND_URL}/threads/get`
         );
 
         if (!response.ok) {
@@ -82,13 +82,16 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
     setError(null);
     try {
       // Call backend to create a new thread
-      const response = await fetch("http://localhost:3000/api/v1/threads/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ title: "New Chat" }), // Initial title
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/threads/add`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ title: "New Chat" }), // Initial title
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to create new chat.");
@@ -126,7 +129,7 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
       setError(null);
       try {
         const response = await fetch(
-          `http://localhost:3000/api/v1/threads/${chatId}`
+          `${import.meta.env.VITE_BACKEND_URL}/threads/${chatId}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch chat details.");
@@ -171,7 +174,7 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
       setError(null);
       try {
         const response = await fetch(
-          `http://localhost:3000/api/v1/threads/${chatId}`,
+          `${import.meta.env.VITE_BACKEND_URL}/threads/${chatId}`,
           {
             method: "DELETE",
           }
@@ -212,7 +215,7 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
 
       try {
         const response = await fetch(
-          `http://localhost:3000/api/v1/threads/${chatId}`,
+          `${import.meta.env.VITE_BACKEND_URL}/threads/${chatId}`,
           {
             method: "PATCH", // Or PUT, depending on your backend
             headers: {
@@ -289,7 +292,7 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
         // Call your backend API here
         // Pass activeThread.id (which is the threadId from MongoDB)
         const response = await fetch(
-          "http://localhost:3000/api/v1/chat/message",
+          `${import.meta.env.VITE_BACKEND_URL}/chat/message`,
           {
             // Corrected endpoint
             method: "POST",
