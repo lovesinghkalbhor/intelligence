@@ -1,4 +1,6 @@
 # 🤖 INTELLIGENCE my own ai assistance with Groq Integration
+[Intelligence](https://intelligence.projects.growthifyservices.in)
+Try this out
 
 This is a **full-stack AI chat application** that allows users to have conversations with a Groq-powered large language model. The application supports both **text-based messages** and **multimodal messages** that include an image, with **conversation history stored in MongoDB**.
 
@@ -157,5 +159,6 @@ frontend-ai-chat/
 ├── package.json
 └── tsconfig.json
 ```
+
 
 
