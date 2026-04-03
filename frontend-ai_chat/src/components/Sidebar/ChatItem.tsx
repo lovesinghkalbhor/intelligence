@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Chat } from "../../types/chat.types.ts";
 import { useChatContext } from "../../context/ChatContext.tsx";
-import { MessageIcon, TrashIcon } from "../icons/Icons";
+import { TrashIcon } from "../icons/Icons";
 
 interface ChatItemProps {
   chat: Chat;
